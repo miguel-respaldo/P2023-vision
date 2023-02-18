@@ -29,6 +29,13 @@ img_gray = img_gray.astype('uint8')
 
 cv.imshow("Baboon Grayscale", img_gray)
 
+# OpenCV converts an image from one color space to another.
+ocv_gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+cv.imshow("Baboon Grayscale OpenCV", ocv_gray)
+
+#diff = cv.absdiff(img_gray, ocv_gray)
+#cv.imshow("Diff", diff)
+
 while True:
     # Leemos del teclado
     key = cv.waitKey(1000)
