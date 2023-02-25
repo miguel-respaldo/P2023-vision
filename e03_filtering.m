@@ -1,6 +1,6 @@
 close all
 img = imread("tigre_2.jpg");
-[fil, col, c] = size(img);
+[fil, col, ch] = size(img);
 img = rgb2gray(img);
 img_or = img;
 
@@ -17,15 +17,15 @@ w = [ 0 -1  0
 img = double(img);
 img_filtrada = zeros(fil,col);
 
-for x=2:fil-1
-    for y=2:col-1
+for m=2:fil-1
+    for n=2:col-1
         aux = 0;
-        for s=-1:1
-            for t=-1:1
-                aux = aux + (w(s+2,t+2)*img(x+s,y+t));
+        for k=-1:1
+            for l=-1:1
+                aux = aux + (w(k+2,l+2)*img(m+k,n+l));
             end
         end
-        img_filtrada(x,y) = aux;
+        img_filtrada(m,n) = aux;
     end
 end
 img_filtrada=uint8(img_filtrada);
