@@ -24,7 +24,7 @@ for x=1:fil
         g = p_value(2);
         b = p_value(3);
         cmax = max(max(r,g),b);
-        cmin = min(min(r,b),b);
+        cmin = min(min(r,g),b);
         diff = cmax-cmin;
 
         if cmax == cmin
