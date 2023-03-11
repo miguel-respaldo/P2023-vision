@@ -8,9 +8,17 @@ img = cv.imread("tigre_2.jpg")
 # Obtenemos su forma
 fil, col, ch = img.shape
 
-kernel = [[ 0., -1., 0.],
-          [-1.,  5.,-1.],
-          [ 0., -1., 0.]]
+#kernel = (1/9) * np.array([[ 1.,  1., 1.],
+#                           [ 1.,  1., 1.],
+#                           [ 1.,  1., 1.]])
+
+#kernel = [[ 0.,  1., 0.],
+#          [ 1., -4., 1.],
+#          [ 0.,  1., 0.]]
+
+#kernel = [[ 0., -1., 0.],
+#          [-1.,  5.,-1.],
+#          [ 0., -1., 0.]]
 
 kernel = [[ 0.,  0., 0.],
           [ 0.,  1., 0.],
@@ -30,7 +38,7 @@ for m in range(1,fil-1):
                 aux += kernel[k][l] * img_float[m+k-1][n+l-1]
         img_filtrada[m][n] = aux
 
-img_filtada = img_filtrada.astype('uint8')
+img_filtrada = img_filtrada.astype('uint8')
 
 cv.imshow("Original", img_gray)
 cv.imshow("Filtrada", img_filtrada)
